@@ -5,16 +5,6 @@
     /// </summary>
     public class Client
     {
-        public Client(int id, string name, string surname, string country, string city, string cargo, string tel)
-        {
-            Id = id;
-            Name = name;
-            Surname = surname;
-            Country = country;
-            City = city;
-            Cargo = cargo;
-            Tel = tel;
-        }
         /// <summary>
         /// id клиента
         /// </summary>
@@ -49,6 +39,8 @@
         /// Телефон клиента
         /// </summary>
         public string Tel { get; set; } = string.Empty;
+
+        public ICollection<OrderList>? OrderList { get; set; }
 
     }
 }

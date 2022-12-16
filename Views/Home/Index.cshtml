@@ -1,8 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<NursaceMVC.Models.Client>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h2>Список клиентов:</h2>
+<p><a asp-action="Create">Добавить клиента</a></p>
+<table class="table">
+     <tr>
+         <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Страна</th>
+        <th>Город</th>
+        <th>Транспортная компания</th>
+        <th>Телефон</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.Country</td>
+                <td>@item.City</td>
+                <td>@item.Cargo</td>
+                <td>@item.Tel</td>
+            </tr>
+    }
+</table>

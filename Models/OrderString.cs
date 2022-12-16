@@ -5,23 +5,6 @@
     /// </summary>
     public class OrderString
     {
-        public OrderString(int id, string kod, string leather, string color, int size35, int size36, int size37, int size38, int size39, int size40, int size41, int price, string note)
-        {
-            Id = id;
-            Kod = kod;
-            Leather = leather;
-            Color = color;
-            Size35 = size35;
-            Size36 = size36;
-            Size37 = size37;
-            Size38 = size38;
-            Size39 = size39;
-            Size40 = size40;
-            Size41 = size41;
-            Price = price;
-            Note = note;
-        }
-
         /// <summary>
         /// id заказа
         /// </summary>
@@ -102,5 +85,10 @@
         /// Заметка
         /// </summary>
         public string Note { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Навигационное свойство лист заказа
+        /// </summary>
+        public OrderList OrderList { get; set; }
     }
 }

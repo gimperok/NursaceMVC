@@ -2,22 +2,11 @@
 {
     public class OrderList
     {
-        public OrderList(int id, List<OrderString> orderStrings)
-        {
-            Id = id;
-            this.orderStrings = orderStrings;
-        }
-
         /// <summary>
         /// ид заказа
         /// </summary>
         public int Id { get; set; }
-
-        /// <summary>
-        /// Список позиций в заказе
-        /// </summary>
-        public List<OrderString> orderStrings { get; set; }
-
+       
         /// <summary>
         /// Всего позиций в заказе
         /// </summary>
@@ -26,7 +15,7 @@
             get
             {
                 int orderPosition = 0;
-                foreach (OrderString ordStr in orderStrings)
+                foreach (OrderString ordStr in OrderStrings)
                 {
                     orderPosition++;
                 }
@@ -42,7 +31,7 @@
             get
             {
                 int pairs = 0;
-                foreach (OrderString ordStr in orderStrings)
+                foreach (OrderString ordStr in OrderStrings)
                 {
                     pairs += ordStr.TotalCountPairs;
                 }
@@ -58,7 +47,7 @@
             get
             {
                 int orderMoney = 0;
-                foreach (OrderString ordStr in orderStrings)
+                foreach (OrderString ordStr in OrderStrings)
                 {
                     orderMoney += ordStr.TotalPrice;
                 }
@@ -76,5 +65,15 @@
                 return OrderTotalMoney / 3;
             }
         }
+
+        /// <summary>
+        /// Навигационное свойство клиент
+        /// </summary>
+        public Client Client { get; set; }
+
+        /// <summary>
+        /// Список позиций в заказе
+        /// </summary>
+        public ICollection<OrderString>? OrderStrings { get; set; }
     }
 }
