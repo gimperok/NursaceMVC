@@ -1,20 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NursaceMVC.Models;
 using System.Diagnostics;
 
 namespace NursaceMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        ApplicationContext db;
+        public HomeController(ApplicationContext context)
         {
-            _logger = logger;
+            db = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
+        {
+            return View(await db.Clients.ToListAsync());
+        }
+
+        public IActionResult CreateClient()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Client client)
+        {
+            db.Clients.Add(client);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }
