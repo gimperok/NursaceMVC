@@ -40,7 +40,7 @@
         /// </summary>
         public string Tel { get; set; } = string.Empty;
 
-        public ICollection<OrderList>? OrderList { get; set; }
+        public List<OrderList>? OrderLists { get; set; }
 
     }
 }

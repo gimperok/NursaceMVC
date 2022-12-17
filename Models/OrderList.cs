@@ -67,13 +67,29 @@
         }
 
         /// <summary>
+        /// Дата создания заказа
+        /// </summary>
+        public DateTime DateCreate
+        {
+            get
+            {
+                return DateTime.Now;
+            }
+        }
+        
+        /// <summary>
+        /// Дата изменения заказа
+        /// </summary>
+        public DateTime DateModify { get; set; }
+
+        /// <summary>
         /// Навигационное свойство клиент
         /// </summary>
-        public Client Client { get; set; }
+        public Client Client { get; set; } = new();
 
         /// <summary>
         /// Список позиций в заказе
         /// </summary>
-        public ICollection<OrderString>? OrderStrings { get; set; }
+        public List<OrderString>? OrderStrings { get; set; }
     }
 }
