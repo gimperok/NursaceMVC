@@ -1,4 +1,6 @@
-﻿namespace NursaceMVC.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NursaceMVC.Models
 {
     public class OrderList
     {
@@ -104,13 +106,19 @@
         public DateTime DateModify { get; set; }
 
         /// <summary>
-        /// Навигационное свойство клиент
-        /// </summary>
-        public Client Client { get; set; } = new();
-
-        /// <summary>
         /// Список позиций в заказе
         /// </summary>
         public List<OrderString>? OrderStrings { get; set; }
+
+        /// <summary>
+        /// внешний ключ Client
+        /// </summary>
+        public int ClientId { get; set; }
+
+        /// <summary>
+        /// Навигационное свойство клиент
+        /// </summary>
+        [ForeignKey("ClientId")]
+        public Client Client { get; set; } = new();
     }
 }

@@ -40,7 +40,10 @@
         /// </summary>
         public string Tel { get; set; } = string.Empty;
 
-        public List<OrderList>? OrderLists { get; set; }
+        /// <summary>
+        /// список заказов
+        /// </summary>
+        public List<OrderList> OrderLists { get; set; } = new();
 
     }
 }

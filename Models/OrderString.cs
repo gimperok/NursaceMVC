@@ -1,4 +1,6 @@
-﻿namespace NursaceMVC.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NursaceMVC.Models
 {
     /// <summary>
     /// Класс описывающий строку заказа
@@ -89,8 +91,13 @@
         public string Note { get; set; } = string.Empty;
 
         /// <summary>
-        /// Навигационное свойство лист заказа
+        /// внешний ключ для OrderList
         /// </summary>
+        public int OrderListId { get; set; }
+        /// <summary>
+        /// Навигационное свойство лист заказа
+        /// </summary> 
+        [ForeignKey("OrderListId")]
         public OrderList OrderList { get; set; }
     }
 }
