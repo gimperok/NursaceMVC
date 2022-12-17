@@ -71,12 +71,12 @@
         /// <summary>
         /// Цена одной позиции
         /// </summary>
-        public int Price { get; set; } = 0;
+        public double Price { get; set; } = 0.00;
 
         /// <summary>
         /// Общая цена серии
         /// </summary>
-        public int TotalPrice
+        public double TotalPrice
         {
             get { return TotalCountPairs * Price; }
         }

@@ -14,12 +14,16 @@
         {
             get
             {
-                int orderPosition = 0;
-                foreach (OrderString ordStr in OrderStrings)
+                if(OrderStrings != null && OrderStrings.Count > 0)
                 {
-                    orderPosition++;
+                    int orderPosition = 0;
+                    foreach (OrderString ordStr in OrderStrings)
+                    {
+                        orderPosition++;
+                    }
+                    return orderPosition;
                 }
-                return orderPosition;
+                return 0;
             }
         }
 
@@ -30,39 +34,51 @@
         {
             get
             {
-                int pairs = 0;
-                foreach (OrderString ordStr in OrderStrings)
+                if (OrderStrings != null && OrderStrings.Count > 0)
                 {
-                    pairs += ordStr.TotalCountPairs;
+                    int pairs = 0;
+                    foreach (OrderString ordStr in OrderStrings)
+                    {
+                        pairs += ordStr.TotalCountPairs;
+                    }
+                    return pairs;
                 }
-                return pairs;
+                return 0;
             }
         }
 
         /// <summary>
         /// Общая сумма заказа
         /// </summary>
-        public int OrderTotalMoney
+        public double OrderTotalMoney
         {
             get
             {
-                int orderMoney = 0;
-                foreach (OrderString ordStr in OrderStrings)
+                if (OrderStrings != null && OrderStrings.Count > 0)
                 {
-                    orderMoney += ordStr.TotalPrice;
+                    double orderMoney = 0;
+                    foreach (OrderString ordStr in OrderStrings)
+                    {
+                        orderMoney += ordStr.TotalPrice;
+                    }
+                    return orderMoney;
                 }
-                return orderMoney;
+                return 0.00;
             }
         }
         
         /// <summary>
         /// Депозит за данный заказ
         /// </summary>
-        public int Deposit
+        public double Deposit
         {
             get
             {
-                return OrderTotalMoney / 3;
+                if (OrderTotalMoney != 0)
+                {
+                    return OrderTotalMoney * 0.3;
+                }
+                return 0.00;
             }
         }
 
