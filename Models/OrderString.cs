@@ -65,7 +65,8 @@
         /// </summary>
         public int TotalCountPairs 
         {
-            get { return Size35 + Size36 + Size37 + Size38 + Size39 + Size40 + Size41; } 
+            get { return TotalCountPairs; }
+            set { TotalCountPairs = Size35 + Size36 + Size37 + Size38 + Size39 + Size40 + Size41; } 
         }
 
         /// <summary>
@@ -78,7 +79,8 @@
         /// </summary>
         public double TotalPrice
         {
-            get { return TotalCountPairs * Price; }
+            get { return TotalPrice; }
+            set { TotalPrice = TotalCountPairs * Price; }
         }
 
         /// <summary>

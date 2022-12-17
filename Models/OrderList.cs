@@ -12,7 +12,8 @@
         /// </summary>
         public int TotalPosition
         {
-            get
+            get { return TotalPosition; }
+            set
             {
                 if(OrderStrings != null && OrderStrings.Count > 0)
                 {
@@ -21,9 +22,9 @@
                     {
                         orderPosition++;
                     }
-                    return orderPosition;
+                    TotalPosition = orderPosition;
                 }
-                return 0;
+                TotalPosition = 0;
             }
         }
 
@@ -32,7 +33,8 @@
         /// </summary>
         public int TotalPairs
         {
-            get
+            get { return TotalPairs; }
+            set
             {
                 if (OrderStrings != null && OrderStrings.Count > 0)
                 {
@@ -41,9 +43,9 @@
                     {
                         pairs += ordStr.TotalCountPairs;
                     }
-                    return pairs;
+                    TotalPairs = pairs;
                 }
-                return 0;
+                TotalPairs = 0;
             }
         }
 
@@ -52,7 +54,8 @@
         /// </summary>
         public double OrderTotalMoney
         {
-            get
+            get { return OrderTotalMoney; }
+            set
             {
                 if (OrderStrings != null && OrderStrings.Count > 0)
                 {
@@ -61,9 +64,9 @@
                     {
                         orderMoney += ordStr.TotalPrice;
                     }
-                    return orderMoney;
+                    OrderTotalMoney = orderMoney;
                 }
-                return 0.00;
+                OrderTotalMoney = 0.00;
             }
         }
         
@@ -72,13 +75,14 @@
         /// </summary>
         public double Deposit
         {
-            get
+            get { return Deposit; }
+            set
             {
                 if (OrderTotalMoney != 0)
                 {
-                    return OrderTotalMoney * 0.3;
+                    Deposit = OrderTotalMoney * 0.3;
                 }
-                return 0.00;
+                Deposit = 0.00;
             }
         }
 
@@ -87,9 +91,10 @@
         /// </summary>
         public DateTime DateCreate
         {
-            get
+            get { return DateCreate; }
+            set
             {
-                return DateTime.Now;
+                DateCreate = DateTime.Now;
             }
         }
         
