@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<NursaceMVC.Models.Client>
 
-    <h2>Список клиентов:</h2>
-<p><a asp-action="CreateClient">Добавить клиента</a></p>
+<h2>Список клиентов:</h2>
+    <p><a asp-controller="Client" asp-action="CreateClient">Добавить клиента</a></p>
 <table class="table">
      <tr>
         <th>Имя</th>
@@ -13,19 +13,19 @@
     </tr>
     @foreach (var item in Model)
     {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Surname</td>
-                <td>@item.Country</td>
-                <td>@item.City</td>
-                <td>@item.Cargo</td>
-                <td>@item.Tel</td>
-                <td><a asp-action="EditClient" asp-controller="Home" asp-route-id="@item.Id">Изменить</a></td>
-                <td>
-                    <form asp-controller="Home" asp-action="DeleteClient" method="post" asp-route-id="@item.Id">
-                        <input type="submit" value="Удалить" />
-                    </form>
-                </td>
-            </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.Country</td>
+            <td>@item.City</td>
+            <td>@item.Cargo</td>
+            <td>@item.Tel</td>
+            <td><a asp-controller="Client" asp-action="EditClient" asp-route-id="@item.Id">Изменить</a></td>
+            <td>
+                <form asp-action="DeleteClient" asp-controller="Client" method="post" asp-route-id="@item.Id">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
     }
 </table>

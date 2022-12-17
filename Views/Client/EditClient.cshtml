@@ -1,7 +1,7 @@
 ﻿@model NursaceMVC.Models.Client
 
 <h2>Редактирование клиента:</h2>
-<form asp-action="EditClient" asp-controller="Home" asp-route-id="@Model.Id">
+<form asp-controller="Client" asp-action="EditClient" asp-route-id="@Model.Id">
     <p>
         <label asp-for="Name">Имя</label><br />
         <input type="text" asp-for="Name" />
@@ -31,3 +31,5 @@
         <input type="submit" value="Сохранить" />
     </p>
 </form>
+
+<p><a asp-controller="Home" asp-action="Index">На главную страницу</a></p>
