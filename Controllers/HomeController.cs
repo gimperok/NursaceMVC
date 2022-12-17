@@ -18,7 +18,7 @@ namespace NursaceMVC.Controllers
             return View(await db.Clients.ToListAsync());
         }
 
-        public IActionResult Create()
+        public IActionResult CreateClient()
         {
             return View();
         }
